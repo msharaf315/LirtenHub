@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors');
 const mongoose = require('mongoose');
 const passport = require('passport')
+const path = require('path');
 
 
 
@@ -51,11 +52,29 @@ app.use('/api/users/partners', partners)
 app.use('/api/admins',admins)
 app.use('/api/vacancy', vacancy)
 
+const port = process.env.PORT || 5000
+
+//Static file declaration
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+//production mode
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')));
+  //
+  app.get('*', (req, res) => {
+    res.sendfile(path.join(__dirname = 'client/build/index.html'));
+  })
+}
+//build mode
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/public/index.html'));
+})
+
 
 // Handling 404
 app.use((req, res) => {
     res.status(404).send({err: 'We can not find what you are looking for'});
  })
 
-const port = process.env.PORT || 5000
+
 app.listen(port, () => console.log(`Server up and running on port ${port}`))
