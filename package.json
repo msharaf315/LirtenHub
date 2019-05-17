@@ -25,6 +25,7 @@
     "heroku": "^7.24.3",
     "joi": "^14.3.1",
     "joi-date-extensions": "^1.2.0",
+    "json-stringify-safe": "^5.0.1",
     "jsonwebtoken": "^8.5.0",
     "moment": "^2.24.0",
     "mongoose": "^5.5.2",
