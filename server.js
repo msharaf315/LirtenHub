@@ -6,13 +6,11 @@ const passport = require('passport')
 
 
 
-const location = require('./routes/api/users/location')
-const calender = require('./routes/api/calender')
+const location = require('./routes/api/users/Location')
 const members=require('./routes/api/users/members')
 const users=require('./routes/api/users')
 const partners = require('./routes/api/users/partners')
 const admins = require ('./routes/api/admins')
-const notifications = require('./routes/api/notifications')
 const vacancy = require('./routes/api/vacancy')
 
 
@@ -49,10 +47,8 @@ app.get('/', (req, res) => {
 app.use('/api/users',users)
 app.use('/api/users/member',members)
 app.use('/api/users/location', location)
-app.use('/api/calender', calender)
 app.use('/api/users/partners', partners)
 app.use('/api/admins',admins)
-app.use('/api/notifications', notifications)
 app.use('/api/vacancy', vacancy)
 
 
