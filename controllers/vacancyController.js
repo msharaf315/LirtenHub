@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const axios = require("axios")
 
 var Vacancy= require('../models/Vacancy')
-const validator = require('../validations/vacancyValidations')
+const validator = require('../Validations/usersValidations')
 
 //var notification = require("../models/Notification")
 
