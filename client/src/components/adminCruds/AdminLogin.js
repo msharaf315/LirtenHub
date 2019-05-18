@@ -1,5 +1,6 @@
 // importing react and connect
 import React, { Component } from 'react';
+import { Redirect } from 'react-router'
 //open a connection with the store
 import {connect} from 'react-redux';
 //import prop types which validates the inputs to this components
@@ -29,6 +30,12 @@ import Col from 'react-bootstrap/Col';
    onChange(e){
      this.setState({[e.target.name]: e.target.value});
    }
+   _onButtonClick() {
+
+    this.setState({
+      redirect: true
+    });
+  }
    //what happens when you click the submit button
    async onSubmit(e){
    //prevents submitting empty values
@@ -40,7 +47,7 @@ import Col from 'react-bootstrap/Col';
    }
    //send an axios request
    this.props.signIn(body)
-
+   this._onButtonClick()
 
 
    //reset the inputs to empty 
@@ -51,23 +58,33 @@ import Col from 'react-bootstrap/Col';
   }
   
     render() {
+      const { redirect } = this.state;
+      if (redirect) {
+        return (<Redirect to='/' />)
+      
+      }
     return (
         <div className='home-grid' >
         <Form onSubmit={this.onSubmit}>
+    
      <Form.Row>
+     <Col>
        <Form.Group as={Col} controlId="formGridEmail">
          <Form.Label>Email</Form.Label>
          <Form.Control type="email" onChange ={this.onChange} name="email" placeholder="Enter email"  value={this.state.email} />
        </Form.Group>
-   
+       </Col>
+       <Col>
        <Form.Group as={Col} controlId="formGridPassword">
          <Form.Label>Password</Form.Label>
          <Form.Control type="password" placeholder="Password" onChange ={this.onChange} name="password"   value={this.state.password}/>
        </Form.Group>
+       </Col>
      </Form.Row>
-     
+     <Col>
        <button type="submit" className="custom-btn">login</button>
-   </Form>;
+       </Col>
+   </Form>
          </div>
        
     )

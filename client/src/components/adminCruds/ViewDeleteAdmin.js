@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
 //validation
 import PropTypes from 'prop-types'
 //importing actions
@@ -20,6 +21,7 @@ class ViewDeleteAdmin extends Component {
   render() {
     const admins = this.props.adminRed.map(admin => (
        <div key={admin.id} className='home-grid'>
+       <Col>
        <Card className="card text-white bg-dark mb-3" style={{ width: '18rem', paddingTop:'2em'}}>
         <Card.Img variant="top" src="https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/10_avatar-256.png" />
         <Card.Body>
@@ -30,7 +32,8 @@ class ViewDeleteAdmin extends Component {
            }
           </Card.Text>
   </Card.Body>
-</Card>;
+</Card>
+</Col>
        </div>
    ));
    
