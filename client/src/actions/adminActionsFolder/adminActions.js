@@ -1,6 +1,7 @@
 // import your actions type
-import {CREATE_ADMIN,VIEW_ADMIN} from './adminTypes';
-
+import {CREATE_ADMIN,VIEW_ADMIN,LOGIN_ADMIN} from './adminTypes';
+import setAuthorizationToken from '../../utils/setAuthorizationToken';
+import jwt from 'jsonwebtoken';
 const axios = require('axios');
 export const createAdmin =  (body)=> async dispatch =>{
     console.log('create action called')
@@ -28,3 +29,14 @@ export const viewAdmins =  ()=> async dispatch =>{
     }));
 
 }
+
+export const signIn =  (body)=> async dispatch =>{
+    await axios.post('http://localhost:5000/api/admins/login',body)
+    .then(res =>{    
+        const token = res.data.token;
+        localStorage.setItem('jwtToken',token);
+        setAuthorizationToken(token);
+        console.log(jwt.decode(token))     
+    });
+}
+

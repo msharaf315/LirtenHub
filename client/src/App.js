@@ -16,18 +16,18 @@ import store from './store.js'
 //add other cruds here
 
 //react mdl components
-import { Footer, FooterSection, FooterLinkList,Layout,Header,Navigation,Drawer,Textfield,Content } from 'react-mdl';
+import {Layout,Header,Navigation,Drawer,Textfield,Content } from 'react-mdl';
 
 //bootstrap components 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import Form from 'react-bootstrap/Form'
-import FormControl from 'react-bootstrap/FormControl'
 
+//importing authorization function
+import setAuthorizationToken from './utils/setAuthorizationToken'
+
+setAuthorizationToken(localStorage.jwtToken);
 
 class App extends Component {
-
+  
   render() {
     return (
       <Provider store ={store}>
@@ -50,6 +50,7 @@ class App extends Component {
                      
                      <Link style={{fontSize: '25px', fontFamily:'Anton' ,color:'black'}} to="/">Home</Link>
                      <h1 style={{fontSize: '25px', fontFamily:'Anton' ,color:'black'}}>Admin</h1>
+                     <Link to="/admin/adminLogin">login</Link>
                      <Link to="/admin/createAdmin">create</Link>
                      <Link to="/admin/viewAdmin">view</Link>
                      <Link to ="/admin/adminProfile">View one</Link>
