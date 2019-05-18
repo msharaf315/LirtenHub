@@ -7,6 +7,7 @@ import {Provider} from 'react-redux'
 import Home from './components/Home'
 import Vacancy from './components/vacancyCruds/Vacancy'
 import Main from './components/main'
+import privateRoute from './components/privateRoute'
 
 //add the rest of the admin cruds here
 import CreateAdminForm from './components/adminCruds/CreateAdminForm'
@@ -62,7 +63,9 @@ class App extends Component {
                  </Content>
                </Layout>
              </div>
-             
+             <Switch>
+               <privateRoute exact path="./components/main" Component = {Main} />
+             </Switch>
              
        
          
