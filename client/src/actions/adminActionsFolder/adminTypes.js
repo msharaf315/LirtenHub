@@ -3,3 +3,4 @@
 //or an enum in java
 export const CREATE_ADMIN ='CREATE_ADMIN';
 export const VIEW_ADMIN ='VIEW_ADMIN';
+export const LOGIN_ADMIN = 'LOGIN_ADMIN';

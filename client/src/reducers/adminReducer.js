@@ -1,5 +1,5 @@
 //import your actions type
-import {CREATE_ADMIN,VIEW_ADMIN} from '../actions/adminActionsFolder/adminTypes';
+import {CREATE_ADMIN,VIEW_ADMIN, LOGIN_ADMIN} from '../actions/adminActionsFolder/adminTypes';
 //intialize the state from the db
 const initialState={
 //items is the initial entries in the db
@@ -23,6 +23,10 @@ export default function(state =initialState,action){
       ...state,
       //adds the new item in the current state
       admins: action.payload
+    }
+    case LOGIN_ADMIN:
+    return{
+     ...state
     }
     //our default returns the current state this is a place holder for now
     default: return state;

@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
 const router = express.Router()
 const Admin = require('../../models/Admin')
-const validator = require('../../validations/adminValidations')
+const validator = require('../../Validations/adminValidations')
 const locationInAdminsController = require('../../controllers/locationController')
 const roomController = require('../../controllers/roomController')
 const memberController = require('../../controllers/memberController')
@@ -16,12 +16,7 @@ const passport = require('passport')
 router.post('/search',passport.authenticate('jwt', {session: false}), async (req,res)=>{
 console.log('im in')
 const input= req.body.searchInput
-// await  Admin.find({
-//   $text: { $search: input},
-// })
-//   .then(admins => res.json({data:admins}))
-//   .catch(e => console.error(e));
-//    
+  
 var result = await Admin.find(
     { $text: { $search: input } },
     { score: { $meta: "textScore" } }
@@ -92,11 +87,9 @@ router.post('/',passport.authenticate('jwt', {session: false}), async (req,res) 
     }  
  })
   
+ 
  //login
- router.post('/login', async (req, res) => {
-    
-
-    
+ router.post('/login', async (req, res) => {   
     try {
 		const { email, password } = req.body;
 		const admin = await Admin.findOne({ email });
@@ -109,6 +102,7 @@ router.post('/',passport.authenticate('jwt', {session: false}), async (req,res) 
                 email: admin.email
             }
             const token = jwt.sign(payload, tokenKey, { expiresIn: '3h' })
+            console.log('loggin in')
             return res.json({token: `Bearer ${token}`})
         }
 		else return res.status(400).send({ password: 'Wrong password' });
@@ -139,6 +133,7 @@ router.post('/',passport.authenticate('jwt', {session: false}), async (req,res) 
      } 
  })
  
+
 // delete an admin
  router.delete('/:id',passport.authenticate('jwt', {session: false}), async (req,res) => {
     if(await Admin.findById(req.user._id)){

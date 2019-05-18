@@ -11,8 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
-//requiring axios
-const axios = require('axios');
+
 
 
 
@@ -71,41 +70,52 @@ class CreateAdminForm extends Component {
     return (
       <div className='home-grid' >
      <Form onSubmit={this.onSubmit}>
+
   <Form.Row>
+    <Col>
     <Form.Group as={Col} controlId="formGridEmail">
       <Form.Label>Email</Form.Label>
       <Form.Control type="email" onChange ={this.onChange} name="email" placeholder="Enter email"  value={this.state.email} />
     </Form.Group>
-
+    </Col>
+    <Col>
     <Form.Group as={Col} controlId="formGridPassword">
       <Form.Label>Password</Form.Label>
       <Form.Control placeholder="Password" onChange ={this.onChange} name="password"   value={this.state.password}/>
     </Form.Group>
+    </Col>
   </Form.Row>
   <Form.Row>
+  <Col>
     <Form.Group as={Col} controlId="formFirstName">
       <Form.Label>First Name</Form.Label>
       <Form.Control placeholder="first name"  type ="text" name="firstName" onChange = {this.onChange} value={this.state.firstName}/>
     </Form.Group>
-
+    </Col>
+    <Col>
     <Form.Group as={Col} controlId="formMiddleName">
       <Form.Label>middle Name</Form.Label>
       <Form.Control placeholder ="middle name" type ="text" name="middleName" onChange = {this.onChange} value={this.state.middleName}>
       </Form.Control>
     </Form.Group>
-
+    </Col>
+    <Col>
     <Form.Group as={Col} controlId="formLastName">
       <Form.Label>last name</Form.Label>
       <Form.Control placeholder ="last name" type ="text" name="lastName" onChange = {this.onChange} value={this.state.lastName}/>
     </Form.Group>
+    </Col>
   </Form.Row>
+  
   <Form.Group as={Col} controlId="formGridAge">
       <Form.Label>Age</Form.Label>
       <Form.Control placeholder = "age" type ="number" name="age" onChange = {this.onChange} value={this.state.age}/>
     </Form.Group>
-  
+    
+    <Col>
     <button type="submit" class="custom-btn">Create admin</button>
-</Form>;
+    </Col>
+</Form>
       </div>
     )
   }
