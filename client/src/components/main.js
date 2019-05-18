@@ -6,7 +6,7 @@ import createAdmin from './adminCruds/CreateAdminForm'
 import viewAdmin from './adminCruds/ViewDeleteAdmin'
 import ProfileAdmin from './adminCruds/ProfileAdmin'
 import AdminLogin from './adminCruds/AdminLogin'
-
+import AdminLogout from './adminCruds/AdminLogout.js'
 import {Switch,Route} from 'react-router-dom'
 
 import vacancyFilter from './filters/VacancySearch'
@@ -17,6 +17,7 @@ const Main = ()=>(
     <Route exact path ="/" component = {Home}/>,
 
     <Route  path= "/admin/adminLogin" component = {AdminLogin}/>
+    <Route  path= "/admin/adminLogout" component = {AdminLogout}/>
     <Route  path= "/admin/createAdmin" component = {createAdmin}/>
     <Route  path= "/admin/viewAdmin" component = {viewAdmin}/>
     <Route  path= "/admin/adminProfile" component = {ProfileAdmin}/>
