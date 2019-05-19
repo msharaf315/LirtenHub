@@ -7,6 +7,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 //import actions on this component
 import {signIn} from '../../actions/adminActionsFolder/adminActions';
+import auth from "../auth"
 //import bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form';
@@ -48,6 +49,7 @@ import Col from 'react-bootstrap/Col';
    //send an axios request
    this.props.signIn(body)
    this._onButtonClick()
+   auth.login()
 
 
    //reset the inputs to empty 
