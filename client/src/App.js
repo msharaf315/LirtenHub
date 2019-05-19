@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route,Link } from 'react-router-dom';
 import {Provider} from 'react-redux'
-import axios from 'axios'
 
 //import your component here
 import Home from './components/Home'
@@ -27,7 +26,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import setAuthorizationToken from './utils/setAuthorizationToken'
 
 setAuthorizationToken(localStorage.jwtToken);
-
 
 class App extends Component {
   
@@ -65,6 +63,15 @@ class App extends Component {
                  </Content>
                </Layout>
              </div>
+             <Switch>
+               <privateRoute exact path="./components/main" Component = {Main} />
+             </Switch>
+             
+       
+         
+
+              
+
         </div>
      </Router>
       </Provider>

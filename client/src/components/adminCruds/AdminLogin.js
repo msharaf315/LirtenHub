@@ -49,6 +49,7 @@ import Col from 'react-bootstrap/Col';
    //send an axios request
    this.props.signIn(body)
    this._onButtonClick()
+   auth.login()
 
 
    //reset the inputs to empty 
@@ -78,7 +79,7 @@ import Col from 'react-bootstrap/Col';
        <Col>
        <Form.Group as={Col} controlId="formGridPassword">
          <Form.Label>Password</Form.Label>
-         <Form.Control type="password" placeholder="Password" onChange ={this.onChange && auth.login()} name="password"   value={this.state.password}/>
+         <Form.Control type="password" placeholder="Password" onChange ={this.onChange} name="password"   value={this.state.password}/>
        </Form.Group>
        </Col>
      </Form.Row>

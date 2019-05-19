@@ -12,14 +12,23 @@ import {Switch,Route} from 'react-router-dom'
 import vacancyFilter from './filters/VacancySearch'
 import roomFilter from './filters/RoomSearch'
 import eventFilter from './filters/EventSearch'
-import {privateRoute} from './privateRoute'
+import {privateRoute} from '../components/privateRoute'
 const Main = ()=>(
 <Switch>
     <Route exact path ="/" component = {Home}/>,
-    <Route exact path= "/admin/adminLogin" component = {AdminLogin}/>
-    <Route exact path= "/admin/createAdmin" component = {createAdmin}/>
-    <Route exact path= "/admin/viewAdmin" component = {viewAdmin}/>
-    <Route exact path= "/admin/adminProfile" component = {ProfileAdmin}/>
+
+    <Route  path= "/admin/adminLogin" component = {AdminLogin}/>
+    <Route  path= "/admin/createAdmin" component = {createAdmin}/>
+    <Route  path= "/admin/viewAdmin" component = {viewAdmin}/>
+    <privateRoute   path= "/admin/adminProfile" component = {ProfileAdmin}/>
+    
+    <Route  path= "/vacancy/viewAll" component = {ViewVacancy}/>
+ 
+    <Route  path= "/search/Vacancies" component = {vacancyFilter}/>
+    <Route  path= "/search/Rooms" component = {roomFilter}/>
+    <Route  path= "/search/Events" component = {eventFilter}/>
+
+    
 </Switch>
 )
 export default Main;
