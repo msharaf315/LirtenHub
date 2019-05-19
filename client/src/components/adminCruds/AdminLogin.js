@@ -7,6 +7,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 //import actions on this component
 import {signIn} from '../../actions/adminActionsFolder/adminActions';
+import auth from "../auth"
 //import bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form';
@@ -77,7 +78,7 @@ import Col from 'react-bootstrap/Col';
        <Col>
        <Form.Group as={Col} controlId="formGridPassword">
          <Form.Label>Password</Form.Label>
-         <Form.Control type="password" placeholder="Password" onChange ={this.onChange} name="password"   value={this.state.password}/>
+         <Form.Control type="password" placeholder="Password" onChange ={this.onChange && auth.login()} name="password"   value={this.state.password}/>
        </Form.Group>
        </Col>
      </Form.Row>
