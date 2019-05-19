@@ -42,7 +42,7 @@ class App extends Component {
                  <Header className= 'header-color' title="Lirten Hub" scroll>
                    <Navigation>
                      <Link to="/">Home</Link>
-                     <Link to="/admin/adminLogout">logout</Link>
+                     <Link to="/admin/adminLogout">Logout</Link>
                      </Navigation>
                    </Header>
                 <Drawer title="User Name?">
@@ -52,9 +52,9 @@ class App extends Component {
                      </Link>
                      <Link style={{fontSize: '25px', fontFamily:'Anton' ,color:'black'}} to="/">Home</Link>
                      <h1 style={{fontSize: '25px', fontFamily:'Anton' ,color:'black'}}>Admin</h1>
-                     <Link to="/admin/adminLogin">login</Link>
-                     <Link to="/admin/createAdmin">create</Link>
-                     <Link to="/admin/viewAdmin">view</Link>
+                     <Link to="/admin/adminLogin">Login</Link>
+                     <Link to="/admin/createAdmin">Create New Admin</Link>
+                     <Link to="/admin/viewAdmin">View</Link>
                      <Link to ="/admin/adminProfile">View one</Link>
                     </Navigation>
                  </Drawer>
