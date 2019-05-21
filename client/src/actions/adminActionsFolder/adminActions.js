@@ -36,6 +36,7 @@ export const signIn =  (body)=> async dispatch =>{
         const token = res.data.token;
         localStorage.setItem('jwtToken',token);
         setAuthorizationToken(token);
+        console.log(jwt.decode(token))      
     });
 }
 
