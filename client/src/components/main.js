@@ -12,15 +12,18 @@ import {Switch,Route} from 'react-router-dom'
 import vacancyFilter from './filters/VacancySearch'
 import roomFilter from './filters/RoomSearch'
 import eventFilter from './filters/EventSearch'
+
+//private routes
+import requireAuth from '../utils/requireAuth'
 const Main = ()=>(
 <Switch>
     <Route exact path ="/" component = {Home}/>,
 
     <Route  path= "/admin/adminLogin" component = {AdminLogin}/>
-    <Route  path= "/admin/adminLogout" component = {AdminLogout}/>
-    <Route  path= "/admin/createAdmin" component = {createAdmin}/>
-    <Route  path= "/admin/viewAdmin" component = {viewAdmin}/>
-    <Route  path= "/admin/adminProfile" component = {ProfileAdmin}/>
+    <Route  path= "/admin/adminLogout" component = {requireAuth(AdminLogout)}/>
+    <Route  path= "/admin/createAdmin" component = {requireAuth(createAdmin)}/>
+    <Route  path= "/admin/viewAdmin" component = {requireAuth(viewAdmin)}/>
+    <Route  path= "/admin/adminProfile" component = {requireAuth(ProfileAdmin)}/>
     
     <Route  path= "/vacancy/viewAll" component = {ViewVacancy}/>
  

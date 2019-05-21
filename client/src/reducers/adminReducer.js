@@ -1,9 +1,11 @@
 //import your actions type
-import {CREATE_ADMIN,VIEW_ADMIN, LOGIN_ADMIN} from '../actions/adminActionsFolder/adminTypes';
+import {CREATE_ADMIN,VIEW_ADMIN, LOGIN_ADMIN,LOGOUT_ADMIN} from '../actions/adminActionsFolder/adminTypes';
 //intialize the state from the db
 const initialState={
 //items is the initial entries in the db
 admins:[],
+isAuthenticated: false
+
 //we store here the response we get from making a new admin
 };
 
@@ -26,8 +28,14 @@ export default function(state =initialState,action){
     }
     case LOGIN_ADMIN:
     return{
-     ...state
+     ...state,
+    isAuthenticated: true
     }
+    case LOGOUT_ADMIN:
+      return{
+        ...state,
+        isAuthenticated: false
+      }
     //our default returns the current state this is a place holder for now
     default: return state;
   }
